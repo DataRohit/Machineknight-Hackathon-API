@@ -1,6 +1,8 @@
 from typing import Union
 
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
+
 
 import pandas as pd
 import pickle
@@ -14,7 +16,7 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    return {"message": "Hello World"}
+    return RedirectResponse("https://machineknight-house-price.herokuapp.com/docs")
 
 
 df = pd.read_csv("./data/full_df.csv")
