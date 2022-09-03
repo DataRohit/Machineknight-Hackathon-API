@@ -16,13 +16,13 @@ def get_rent(features, building_type_encoder, facing_encoder, furnishing_encoder
     tmp_df['water_supply'] = water_supply_encoder.transform(
         tmp_df['water_supply'])
 
-    # temp_dict = {}
-    # for key, val in zip(tmp_df.columns, tmp_df.values[0]):
-    #     temp_dict[key] = val
+    temp_dict = {}
+    for key, val in zip(tmp_df.columns, tmp_df.values[0]):
+        temp_dict[key] = val
 
-    temp = np.array([list(tmp_df.values[0])])
-    pred = float(list(loaded_model.predict(np.array(temp)))[0])
+    return temp_dict
 
-    return pred
+    # temp = np.array([list(tmp_df.values[0])])
+    # pred = float(list(loaded_model.predict(np.array(temp)))[0])
 
-    # return float(pred[0])
+    # return pred
