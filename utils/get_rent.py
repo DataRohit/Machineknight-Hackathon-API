@@ -23,7 +23,7 @@ def get_rent(features, building_type_encoder, facing_encoder, furnishing_encoder
         "building_type", "balconies"
     ]]
 
-    return list(tmp_df.values)
+    return list(tmp_df.values[0])
 
     # temp_dict = {}
     # for col, val in zip(tmp_df.columns, tmp_df.values[0]):
