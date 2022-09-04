@@ -17,8 +17,8 @@ app = FastAPI()
 @app.get("/")
 def home():
 
-    return RedirectResponse("https://machineknight-house-price.herokuapp.com/docs")
-    # return "Hello World!"
+    # return RedirectResponse("https://machineknight-house-price.herokuapp.com/docs")
+    return "Hello World!"
 
 
 df = pd.read_csv("./data/full_df.csv")
@@ -67,8 +67,8 @@ def predict_house_rent(
     water_supply_encoder = pickle.load(
         open('./encoders/water_supply_encoder.pkl', 'rb'))
 
-    # model = pickle.load(
-    #     open("./autosklearnregressor_model_2.sav", 'rb'))
+    model = pickle.load(
+        open("./autosklearnregressor_model_2.sav", 'rb'))
 
     predicted_rent = get_rent(
         features={
@@ -98,7 +98,7 @@ def predict_house_rent(
         parking_encoder=parking_encoder,
         type_encoder=type_encoder,
         water_supply_encoder=water_supply_encoder,
-        # loaded_model=model
+        loaded_model=model
     )
 
     return {
