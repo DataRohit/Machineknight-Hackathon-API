@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-def get_rent(features, building_type_encoder, facing_encoder, furnishing_encoder, lease_type_encoder, parking_encoder, type_encoder, water_supply_encoder, loaded_model=None):
+def get_rent(features, building_type_encoder, facing_encoder, furnishing_encoder, lease_type_encoder, parking_encoder, type_encoder, water_supply_encoder, loaded_model):
     tmp_df = pd.DataFrame([list(features.values())],
                           columns=list(features.keys()))
 
@@ -23,7 +23,7 @@ def get_rent(features, building_type_encoder, facing_encoder, furnishing_encoder
         "building_type", "balconies"
     ]]
 
-    return [list(tmp_df.values[0])]
+    # return [list(tmp_df.values[0])]
 
     # temp_dict = {}
     # for col, val in zip(tmp_df.columns, tmp_df.values[0]):
@@ -31,7 +31,7 @@ def get_rent(features, building_type_encoder, facing_encoder, furnishing_encoder
 
     # return temp_dict
 
-    # temp = np.array([list(tmp_df.values[0])])
-    # pred = float(list(loaded_model.predict(np.array(temp)))[0])
+    temp = np.array([list(tmp_df.values[0])])
+    pred = float(list(loaded_model.predict(np.array(temp)))[0])
 
-    # return pred
+    return pred
